@@ -120,6 +120,7 @@
     btop
     brightnessctl
     git
+    gh
     gnome-tweaks
     librewolf
     localsend

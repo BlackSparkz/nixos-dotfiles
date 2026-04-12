@@ -1,0 +1,15 @@
+function gacpnix
+    if test (count $argv) -eq 0
+        echo "Plz write commit message"
+        return
+    end
+
+    cd ~/NixOS-dotfiles/
+    git add .
+
+    if git commit -m (string join " " $argv)
+        git push
+    end
+
+    cd ~
+end
