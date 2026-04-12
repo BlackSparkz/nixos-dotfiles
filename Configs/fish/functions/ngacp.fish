@@ -1,4 +1,4 @@
-function gacpnix
+function ngacp
     if test (count $argv) -eq 0
         echo "Plz write commit message"
         return
