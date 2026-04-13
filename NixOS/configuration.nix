@@ -108,6 +108,8 @@
     bat
     waybar
     rofi
+    mako
+    font-awesome
     wlogout
     pulsemixer
     hyprlock
