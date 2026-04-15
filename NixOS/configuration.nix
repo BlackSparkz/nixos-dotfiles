@@ -109,6 +109,18 @@
     waybar
     rofi
     mako
+    swayidle
+    7zip
+    alacritty
+    android-tools
+    cliphist
+    cmus
+    zsh
+    grim
+    kdeconnect
+    mpv
+    slurp
+    wl-clipboard
     font-awesome
     wlogout
     pulsemixer
