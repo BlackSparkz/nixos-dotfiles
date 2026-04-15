@@ -1,0 +1,58 @@
+{
+  "position": "top",
+  "reload_style_on_change": true,
+  "gtk-layer-shell": true,
+  "exclusive": true,
+  "height": 20,
+  //"margin-top": 10,
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "active": "",
+      "default": ""
+    },
+    "persistent-workspaces": {
+      "*": 3
+    }
+  },
+
+"custom/logo": {
+    "format" : "   NixOS",
+    "tooltip": true,
+    "tooltip-format": "NixOS (Hyprland)",
+    "on-click": "pkill rofi || rofi -show drun -theme ~/.config/rofi/launchpad.rasi",
+    "on-click-right": "kitty"
+},
+
+  "modules-center": [
+    "custom/logo",
+    "custom/mpris",
+    "hyprland/workspaces",
+    "clock",
+    "temperature",
+    "cpu",
+    "memory",
+    "disk",
+    "network",
+    "pulseaudio",
+    "backlight",
+    "battery",
+    "custom/power"
+  ],
+
+"include": [
+  "~/.config/waybar/Modules/Power.jsonc",
+  "~/.config/waybar/Modules/Temperature.jsonc",
+  "~/.config/waybar/Modules/Battery.jsonc",
+  "~/.config/waybar/Modules/Backlight.jsonc",
+  "~/.config/waybar/Modules/Disk.jsonc",
+  "~/.config/waybar/Modules/Memory.jsonc",
+  "~/.config/waybar/Modules/Cpu.jsonc",
+  "~/.config/waybar/Modules/Pulseaudio.jsonc",
+  "~/.config/waybar/Modules/Clock.jsonc",
+  "~/.config/waybar/Modules/Mpris.jsonc",
+  "~/.config/waybar/Modules/Network.jsonc"
+]
+
+}

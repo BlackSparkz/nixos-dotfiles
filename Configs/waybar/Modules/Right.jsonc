@@ -1,14 +1,13 @@
 {
   "modules-right": [
         "custom/power",
-	      "temperature",
+        "temperature",
         "cpu",
         "memory",
         "disk",
         "network",
         "pulseaudio",
         "backlight",
-	      /*"custom/battery"*/
         "battery"
     ]
 

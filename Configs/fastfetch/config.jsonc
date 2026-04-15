@@ -9,11 +9,11 @@
         "top": 1,          // Top padding
         "left": 0,         // Left padding
         "right": 4         // Right padding
-    },
+    }
 },
 
     "display": {
-        "separator": "  ",
+        "separator": "  ➤ ",
         "constants": [
             "─────────────────"
         ],
@@ -42,10 +42,6 @@
             "format": "├{$1} {#1}Software Flex{#} {$1}┤"
         },
 
-        //{
-        //     "type": "OS",
-        //     "format": "By the way, I use NixOS"
-        //},
         "os",
         "kernel",
         "wm",
@@ -56,6 +52,6 @@
         {
             "type": "custom",
             "format": "└{$1}───────────────{$1}┘"
-        },
+        }
     ]
 }

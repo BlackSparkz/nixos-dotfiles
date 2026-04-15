@@ -14,9 +14,9 @@
 ],
 
 "custom/logo": {
-    "format" : "󰣇   Hyprland",
-    "tooltip": false,
-    "tooltip-format": "App launcher",
+    "format" : "   NixOS",
+    "tooltip": true,
+    "tooltip-format": "NixOS (Hyprland)",
     "on-click": "pkill rofi || rofi -show drun -theme ~/.config/rofi/launchpad.rasi",
     "on-click-right": "kitty"
 },
@@ -25,8 +25,11 @@
 	"format": "{icon}",
 	"format-icons": {
 		"active": "",
-		"default": ""
-	}
+		"default": ""
+	},
+  "persistent-workspaces": {
+      "*": 3
+  }
 },
 
 "include": [

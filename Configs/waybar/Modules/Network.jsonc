@@ -5,6 +5,7 @@
         "format-alt": " {bandwidthUpBytes}   {bandwidthDownBytes}",
         "tooltip-format-wifi": "You are connected to {essid} ({signalStrength}%)",
         "format-disconnected": "   No internet",
+        "tooltip-format-disconnected": "   You have no internet access",
         "on-click-right": "kitty -e nmtui"
     }
 

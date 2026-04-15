@@ -125,6 +125,7 @@
     gh
     gnome-tweaks
     librewolf
+    alacritty
     localsend
     kitty
   ];

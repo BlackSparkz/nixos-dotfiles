@@ -51,7 +51,7 @@ icon-search {
 }
 
 entry {
-  placeholder:        "Search";
+  placeholder:        "Type here to search";
   placeholder-color:  @fg1;
 }
 
