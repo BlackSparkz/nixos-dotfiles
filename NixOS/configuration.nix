@@ -117,7 +117,6 @@
     cmus
     zsh
     grim
-    kdeconnect
     mpv
     slurp
     wl-clipboard
