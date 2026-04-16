@@ -110,12 +110,12 @@
     rofi
     mako
     swayidle
-    7zip
     alacritty
     android-tools
     cliphist
     cmus
     zsh
+    cava
     grim
     mpv
     slurp

@@ -12,8 +12,8 @@ size = 12.0
 
 [font.normal]
 #family = "Google Sans Code NF"
-family = "ProFont IIx Nerd Font Mono"
 # style = "Regular"
+family = "ProFont IIx Nerd Font Mono"
 
 [selection]
 save_to_clipboard = true
@@ -47,7 +47,7 @@ cyan = "#06989a"
 white = "#d3d7cf"
 
 [colors.bright]
-black = "#555753"
+black = "#000000"
 red = "#ef2929"
 green = "#00ff00"
 yellow = "#fce94f"
