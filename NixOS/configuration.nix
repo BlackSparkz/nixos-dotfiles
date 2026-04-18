@@ -33,35 +33,28 @@
   time.timeZone = "Asia/Kolkata";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_IN";
+  i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_IN";
-    LC_IDENTIFICATION = "en_IN";
-    LC_MEASUREMENT = "en_IN";
-    LC_MONETARY = "en_IN";
-    LC_NAME = "en_IN";
-    LC_NUMERIC = "en_IN";
-    LC_PAPER = "en_IN";
-    LC_TELEPHONE = "en_IN";
-    LC_TIME = "en_IN";
-  };
+    LC_ADDRESS = "en_US.UTF-8";
+    LC_IDENTIFICATION = "en_US.UTF-8";
+    LC_MEASUREMENT = "en_US.UTF-8";
+    LC_MONETARY = "en_US.UTF-8";
+    LC_NAME = "en_US.UTF-8";
+    LC_NUMERIC = "en_US.UTF-8";
+    LC_PAPER = "en_US.UTF-8";
+    LC_TELEPHONE = "en_US.UTF-8";
+    LC_TIME = "en_US.UTF-8";
+    };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the GNOME Desktop Environment.
-  services.displayManager.gdm.enable = true;
-  services.desktopManager.gnome.enable = true;
+  # services.xserver.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
     variant = "";
   };
-
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -79,9 +72,6 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.blackspark = {
     isNormalUser = true;
@@ -93,9 +83,9 @@
     ];
   };
 
-  # Install firefox.
-  programs.firefox.enable = true;
+  # Install programs.
   programs.fish.enable = true;
+  programs.kdeconnect.enable = true;
   programs.hyprland.enable = true;
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
@@ -108,23 +98,22 @@
     bat
     waybar
     rofi
+    libnotify
     mako
-    swayidle
-    alacritty
     android-tools
     cliphist
     cmus
-    zsh
-    cava
-    grim
-    mpv
-    slurp
+    gparted
     wl-clipboard
-    font-awesome
+    slurp
+    grim
+    nwg-look
+    alacritty
     wlogout
     pulsemixer
     hyprlock
     swaybg
+    swayidle
     stow
     eza
     yazi
@@ -134,7 +123,6 @@
     brightnessctl
     git
     gh
-    gnome-tweaks
     librewolf
     alacritty
     localsend
