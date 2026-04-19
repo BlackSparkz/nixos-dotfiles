@@ -99,6 +99,7 @@
     fastfetch
     fish
     bat
+    font-awesome
     waybar
     rofi
     libnotify
@@ -106,7 +107,6 @@
     android-tools
     cliphist
     cmus
-    gparted
     wl-clipboard
     slurp
     grim

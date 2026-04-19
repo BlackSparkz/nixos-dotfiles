@@ -16,7 +16,7 @@ window#waybar {
 #workspaces button {
     color: white;
     border-radius: 24px;
-    padding: 0px 0px 0px 0px;
+    padding: 0px 1px 0px 1px;
 }
 
 #workspaces button.active {
@@ -53,7 +53,6 @@ tooltip label {
 #battery.critical:not(.charging),
 #battery.warning:not(.charging),
 #battery.charging,
-/*#custom-battery,*/
 #battery.plugged,
 #battery.full,
 #custom-logo,
