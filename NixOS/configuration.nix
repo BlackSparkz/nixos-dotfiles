@@ -116,7 +116,6 @@
     pulsemixer
     hyprlock
     swaybg
-    swayidle
     stow
     eza
     yazi
