@@ -5,7 +5,7 @@
     "format": "It's {:%H:%M:%S}",
     "format-alt": "It’s {:%H:%M:%S on %A, %d %B %Y}",
     "tooltip-format": "<tt><small>{calendar}</small></tt>",
-    "on-click-right": "kitty -e bluetui"
+    "on-click-right": "footclient --app-id bluetui -e bluetui"
     }
 
 }

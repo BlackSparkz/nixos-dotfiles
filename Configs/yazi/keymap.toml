@@ -1,6 +1,7 @@
 [mgr]
 prepend_keymap = [
-  # { on = [ "<C-s>" ], run = "plugin kdeconnect-send", desc = "Send via KDE Connect" },
-  { on = [ "<C-w>" ], run = 'shell --orphan "bash -c \"pkill swaybg; swaybg -i %s -m fill\""' },
-  { on = [ "<C-s>" ], run = 'shell --orphan "bash -c \"bash ~/.config/Scripts/kde-send.sh %s\""' },
+  { on = [ "u" ], run = 'shell --orphan "bash -c \"pkill swaybg; swaybg -i %s -m fill\""' },
+  { on = [ "i" ], run = 'shell --orphan "bash -c \"bash ~/.config/Scripts/kde-send.sh %s\""' },
+  { on = [ "d", "d" ], run = "remove --permanently --force", desc = "Permanently delete without confirmation" },
+  { on = [ "g", "c" ], run  = "cd ~/hobbyist-dotfiles/Configs/", desc = "Cd to ~/hobbyist-dotfiles/Configs/" },
 ]

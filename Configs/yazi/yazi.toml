@@ -1,4 +1,4 @@
-"$schema" = "https://yazi-rs.github.io/schemas/yazi.json"
+# :schema https://yazi-rs.github.io/schemas/yazi.json
 
 [mgr]
 ratio          = [ 2, 4, 3 ]
@@ -31,12 +31,11 @@ edit = [
 	{ run = "${EDITOR:-nvim} %s", desc = "$EDITOR",      for = "unix", block = true },
 ]
 play = [
-	{ run = "mpv %s1",    desc = "Play", for = "linux", orphan = true },
+	{ run = "mpv %s",    desc = "Play", for = "linux", orphan = true },
 	{ run = "mediainfo %s1; echo 'Press enter to exit'; read _", block = true, desc = "Show media info", for = "unix" },
 ]
 open = [
-  # { run = "bash -c 'viu %s1; echo Press enter to exit ; read'", block = true, desc = "Open", for = "linux" },
-  { run = "bash -c 'kitty +kitten icat --align center --scale-up %s1; echo Press Enter to exit; read'", block = true, desc = "Open Image", for = "linux" },
+	{ run = "swayimg %d", block = true, desc = "swayimg", for = "linux" },
 ]
 reveal = [
 	{ run = "xdg-open %d1",         desc = "Reveal", for = "linux" },
@@ -84,9 +83,9 @@ suppress_preload = false
 [plugin]
 fetchers = [
 	# Mimetype
-	{ id = "mime", url = "*/",         run = "mime.dir", prio = "high" },
-	{ id = "mime", url = "local://*",  run = "mime.local", prio = "high" },
-	{ id = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
+	{ group = "mime", url = "*/",         run = "mime.dir", prio = "high" },
+	{ group = "mime", url = "local://*",  run = "mime.local", prio = "high" },
+	{ group = "mime", url = "remote://*", run = "mime.remote", prio = "high" },
 ]
 spotters = [
 	{ url = "*/", run = "folder" },

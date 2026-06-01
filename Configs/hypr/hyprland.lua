@@ -1,0 +1,8 @@
+require("hyprland_modules/Monitors")
+require("hyprland_modules/Input")
+require("hyprland_modules/Autostart")
+require("hyprland_modules/Look_and_feel")
+require("hyprland_modules/Misc")
+require("hyprland_modules/Gestures")
+require("hyprland_modules/Keybinds")
+require("hyprland_modules/Rules")

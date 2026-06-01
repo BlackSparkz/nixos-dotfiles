@@ -6,7 +6,7 @@
     "path": "/",
     "tooltip": true,
     "tooltip-format": "{used} is used out of {total}\nCurrently free storage is {free} ({percentage_free}%)",
-    "on-click-right": "kitty -e ncdu /"
+    "on-click-right": "footclient --app-id ncdu -e ncdu /"
   }
 
 }

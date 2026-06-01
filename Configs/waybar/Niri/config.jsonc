@@ -1,0 +1,29 @@
+{
+  "layer": "top",
+  "position": "top",
+  "spacing": 6,
+  "reload_style_on_change": true,
+
+  "modules-left":[
+    "custom/logo",
+    "custom/mpris",
+    "niri/workspaces"
+  ],
+
+  "custom/logo": {
+    "format" : "󰣇   Niri",
+    "tooltip": false,
+    "tooltip-format": "App launcher",
+    "on-click": "pkill rofi || rofi -show drun",
+    "on-click-right": "foot"
+  },
+
+  "niri/workspaces": {
+    "format": "{icon}",
+    "format-icons": { "active": "", "default": "" }
+  },
+
+  "include": [
+    "~/.config/waybar/Modules/*.jsonc"
+  ]
+}

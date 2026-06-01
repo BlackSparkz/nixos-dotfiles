@@ -5,7 +5,7 @@
     "format-alt": "    {used:0.1f}GiB / {total:0.1f}GiB",
     "tooltip": true,
     "tooltip-format": "{used} GiB RAM is used out of {total} GiB\n{swapUsed} GiB SWAP is used out of {swapTotal} GiB",
-    "on-click-right": "kitty -e btop"
+    "on-click-right": "footclient --fullscreen --app-id btop -e btop"
   }
 
 }

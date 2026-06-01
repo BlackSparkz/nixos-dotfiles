@@ -7,9 +7,9 @@
         "format-bluetooth":" {icon} {volume}%",
         "format-muted": "   Muted",
         "format-icons": { "default": [" ", "  ", "   "]},
-	      "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-",
+	      "on-click": "wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%- && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga",
 	      "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-	      "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1.0 10%+",
-	      "on-double-click-middle": "kitty -e pulsemixer"
+	      "on-click-right": "wpctl set-volume @DEFAULT_AUDIO_SINK@ -l 1.0 10%+ && paplay /usr/share/sounds/freedesktop/stereo/audio-volume-change.oga",
+	      "on-double-click-middle": "footclient --app-id pulsemixer -e pulsemixer"
     }
 }
