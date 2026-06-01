@@ -4,7 +4,7 @@
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("footclient"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("foot"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("librewolf"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/rofi_clipboard.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("kdeconnect-app"))
