@@ -21,29 +21,25 @@ SYSTEM_NIXOS="/etc/nixos"
 
 [[ -d "${DOTFILES}" ]] || die "Dotfiles directory not found: ${DOTFILES}"
 
-# ── 2. back up and replace NixOS config ───────────────────────────────────────
-# log "Backing up /etc/nixos/configuration.nix"
-# if [[ -f "${SYSTEM_NIXOS}/configuration.nix" ]]; then
-#     sudo cp --backup=numbered \
-#         "${SYSTEM_NIXOS}/configuration.nix" \
-#         "${SYSTEM_NIXOS}/configuration.nix.bak"
-#     ok "Backup written (numbered)"
-# else
-#     log "No configuration.nix found — skipping backup"
-# fi
+if [[ -f ${SYSTEM_NIXOS}/hardware-configuration.nix && ! -L ${SYSTEM_NIXOS}/hardware-configuration.nix ]]; then
+  sudo mv "${SYSTEM_NIXOS}/hardware-configuration.nix" "${NIXOS_DIR}/hardware-configuration.nix"
+fi
 
-# ── 3. pull hardware-configuration into dotfiles ──────────────────────────────
-# HW_SRC="${SYSTEM_NIXOS}/hardware-configuration.nix"
-# HW_DST="${NIXOS_DIR}/hardware-configuration.nix"
-#
-# log "Importing hardware-configuration.nix"
-# [[ -f "${HW_SRC}" ]] || die "hardware-configuration.nix not found at ${HW_SRC}"
-#
-# # Remove stale copy first, then move the live one
-# rm -f "${HW_DST}"
-# sudo cp -- "${HW_SRC}" "${HW_DST}"
-# sudo chown "$(id -un):$(id -gn)" "${HW_DST}"
-# ok "hardware-configuration.nix → ${HW_DST}"
+if [[ ! -L ${SYSTEM_NIXOS}/hardware-configuration.nix ]]; then 
+  sudo ln -s "${NIXOS_DIR}/hardware-configuration.nix" "${SYSTEM_NIXOS}/hardware-configuration.nix"
+else
+  ok "Symlink exists"
+fi
+
+if [[ -f ${SYSTEM_NIXOS}/configuration.nix && ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
+  sudo mv "${SYSTEM_NIXOS}/configuration.nix" "${SYSTEM_NIXOS}/configuration.nix-$(date).bak"
+fi
+if [[ ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
+  sudo ln -s "${NIXOS_DIR}/configuration.nix" "${SYSTEM_NIXOS}/configuration.nix"
+else
+  ok "Symlink exists"
+fi
+ok "configuration completed"
 
 # ── 4. stow configs ───────────────────────────────────────────────────────────
 log "Stowing Configs → ~/.config"
@@ -72,29 +68,17 @@ mkdir -p "${HOME}/.local/share/icons"
 cp -r -- "${DOTFILES}/Configs/Resources/Bibata-Modern-Ice" "${HOME}/.local/share/icons/"
 ok "Cursor theme installed"
 
-# ── 6. lazy.nvim ──────────────────────────────────────────────────────────────
-# LAZY_DIR="${HOME}/.local/share/nvim/lazy/lazy.nvim"
-# log "Installing lazy.nvim"
-# rm -rf -- "${LAZY_DIR}"
-# git clone \
-#     --filter=blob:none \
-#     --branch=stable \
-#     https://github.com/folke/lazy.nvim.git \
-#     "${LAZY_DIR}"
-# ok "lazy.nvim installed"
-
 # ── 7. bluetooth ──────────────────────────────────────────────────────────────
 log "Unblocking bluetooth"
 sudo rfkill unblock bluetooth
 ok "Bluetooth unblocked"
 
-# # ── 8. nixos rebuild ──────────────────────────────────────────────────────────
-# log "Updating flake inputs"
-# sudo nix flake update "${NIXOS_DIR}"
-#
-# log "Rebuilding NixOS"
-# sudo nixos-rebuild switch --flake "${NIXOS_DIR}#NixOS"
-# ok "NixOS rebuild complete"
+# ── 8. nixos rebuild ──────────────────────────────────────────────────────────
+log "Updating flake inputs"
+# sudo nix flake update
+log "Rebuilding NixOS"
+sudo nixos-rebuild switch
+ok "NixOS rebuild complete"
 
 # ── 9. launch editor (non-blocking, after rebuild) ────────────────────────────
 log "Launching Neovim in Kitty"
