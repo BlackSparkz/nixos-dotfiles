@@ -1,3 +1,9 @@
-cd ~/NixOS-dotfiles/NixOS/
-sudo nix flake update
-sudo nixos-rebuild switch --flake ~/NixOS-dotfiles/NixOS#NixOS
+```bash
+nix-shell -p git stow
+```
+```bash
+git clone https://github.com/BlackSparkz/nixos-dotfiles.git
+```
+```bash
+bash ~/nixos-dotfiles/install.sh
+```
