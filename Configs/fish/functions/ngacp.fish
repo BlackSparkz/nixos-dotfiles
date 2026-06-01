@@ -4,7 +4,7 @@ function ngacp
         return
     end
 
-    cd ~/NixOS-dotfiles/
+    cd ~/nixos-dotfiles/
     git add .
 
     if git commit -m (string join " " $argv)
