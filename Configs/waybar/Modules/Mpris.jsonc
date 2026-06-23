@@ -1,11 +1,18 @@
 {
-  "custom/mpris": {
-    "exec": "~/.config/Scripts/mpris.sh",
-    "interval": 2,
-    "return-type": "json",
-    "max-length": 15,
+  "mpris": {
+    "smooth-scrolling-threshold": 2.0,
+    "tooltip": false,
+    "on-scroll-down": "playerctl position 3+",
+    "on-scroll-up": "playerctl position 2-",
+    "interval": 1,
+    "max-length": 16,
+	  "format": "{player_icon} {dynamic}",
+    "format-status":"",
+	  "format-paused": "{status_icon} {dynamic}",
     "on-click": "playerctl play-pause",
-    "tooltip": false
+    "on-click-right": "playerctl next",
+    "on-click-middle": "playerctl previous",
+	  "player-icons": {"default": "  "},
+	  "status-icons": {"paused": "  "}
   }
-
 }

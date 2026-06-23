@@ -28,22 +28,16 @@ padding:  8px;
 inputbar {
 background-color: @bg2;
 margin:   48px calc( 50% - 200px );
-padding:  10px 16px;
+padding:  10px 24px;
 spacing:  10px;
 border:         1px;
 border-radius:  24px;
 border-color:   @bg3;
-children: [icon-search,entry];
+children: [entry];
 }
 
 prompt {
 enabled:  false;
-}
-
-icon-search {
-expand:   false;
-filename: "search";
-vertical-align: 0.5;
 }
 
 entry {

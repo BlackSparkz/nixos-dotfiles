@@ -6,7 +6,8 @@
 
   "modules-left":[
     "custom/logo",
-    "custom/mpris",
+    "mpris",
+    "tray",
     "hyprland/workspaces"
   ],
 
@@ -14,7 +15,7 @@
     "format" : "󰣇   Hyprland",
     "tooltip": false,
     "tooltip-format": "App launcher",
-    "on-click": "pkill rofi || rofi -show drun -theme ~/.config/rofi/launchpad.rasi",
+    "on-click": "pkill rofi || rofi -show drun -theme ~/.config/rofi/glass_minimal.rasi",
     "on-click-right": "foot"
   },
 

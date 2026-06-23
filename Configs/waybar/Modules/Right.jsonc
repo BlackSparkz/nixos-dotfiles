@@ -5,6 +5,7 @@
         "cpu",
         "memory",
         "disk",
+        "bluetooth",
         "network",
         "pulseaudio",
         "backlight",

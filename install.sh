@@ -1,10 +1,16 @@
 #!/usr/bin/env bash
+
 set -euo pipefail
 
-# ── helpers ────────────────────────────────────────────────────────────────────
 log()  { printf '\e[1;34m=>\e[0m %s\n' "$*"; }
 ok()   { printf '\e[1;32m✓\e[0m  %s\n' "$*"; }
 die()  { printf '\e[1;31mERROR:\e[0m %s\n' "$*" >&2; exit 1; }
+
+if [[ "$(tty)" == /dev/tty* ]]; then
+  setfont latarcyrheb-sun32
+else
+  ok "Not in TTY, skipping font size...\n"
+fi
 
 require() {
     for cmd in "$@"; do
@@ -28,7 +34,7 @@ fi
 if [[ ! -L ${SYSTEM_NIXOS}/hardware-configuration.nix ]]; then 
   sudo ln -s "${NIXOS_DIR}/hardware-configuration.nix" "${SYSTEM_NIXOS}/hardware-configuration.nix"
 else
-  ok "Symlink exists"
+  ok "Hardware-configuration Symlink exists"
 fi
 
 if [[ -f ${SYSTEM_NIXOS}/configuration.nix && ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
@@ -37,15 +43,14 @@ fi
 if [[ ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
   sudo ln -s "${NIXOS_DIR}/configuration.nix" "${SYSTEM_NIXOS}/configuration.nix"
 else
-  ok "Symlink exists"
+  ok "Configuration Symlink exists"
 fi
-ok "configuration completed"
+ok "NixOS configuration completed"
 
 # ── 4. stow configs ───────────────────────────────────────────────────────────
 log "Stowing Configs → ~/.config"
 mkdir -p "${HOME}/.config"
 cd "${DOTFILES}"
-# --adopt would silently clobber; use --no-folding + check for conflicts first
 if ! stow --simulate -t "${HOME}/.config" Configs &>/dev/null; then
     die "stow reports conflicts — run 'stow --simulate -t ~/.config Configs' to inspect"
 fi
@@ -56,7 +61,7 @@ ok "Stow complete"
 log "Installing fonts"
 mkdir -p "${HOME}/.local/share/fonts"
 cp -r -- "${DOTFILES}/Configs/Resources/fonts/." "${HOME}/.local/share/fonts/"
-fc-cache -f "${HOME}/.local/share/fonts" || true  # best-effort
+fc-cache -f "${HOME}/.local/share/fonts" || true
 ok "Fonts installed"
 
 log "Installing wallpapers"
@@ -74,15 +79,12 @@ sudo rfkill unblock bluetooth
 ok "Bluetooth unblocked"
 
 # ── 8. nixos rebuild ──────────────────────────────────────────────────────────
-log "Updating flake inputs"
-# sudo nix flake update
+# log "Updating channels"
+# sudo nix-channel --update
+
 log "Rebuilding NixOS"
 sudo nixos-rebuild switch
-ok "NixOS rebuild complete"
 
-# ── 9. launch editor (non-blocking, after rebuild) ────────────────────────────
-log "Launching Neovim in Kitty"
-kitty -- nvim &
-disown
+ok "NixOS rebuild complete"
 
 ok "Install complete"

@@ -3,17 +3,8 @@
         "format" : "",
         "tooltip": true,
         "tooltip-format": "Power menu",
-        //"menu": "on-click",
         "on-click-right": "quickshell -p $HOME/.config/quickshell/power_menu/",
 	      "on-click": "pkill wlogout || wlogout",
         "on-click-middle": "systemctl poweroff"
-        //"menu-file": "~/.config/waybar/power_menu.xml",
-        //"menu-actions": {
-        //    "shutdown": "systemctl poweroff",
-        //    "reboot": "systemctl reboot",
-        //    "suspend": "systemctl suspend",
-        //    "logout": "loginctl terminate-user $USER",
-        //},
    }
-
 }

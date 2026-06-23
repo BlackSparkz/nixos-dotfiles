@@ -10,6 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  console.font = "latarcyrheb-sun32";
 
   networking.hostName = "NixOS";
 
@@ -68,6 +69,7 @@
     neovim
     git
     fastfetch
+    awww
     fish
     bat
     waybar
@@ -82,19 +84,24 @@
     grim
     nwg-look
     foot
-    swaybg
     stow
     eza
     yazi
     bluez
     bluez-tools
     bluetui
+    playerctl
+    librewolf-bin
     btop
     brightnessctl
     gh
-    librewolf
     localsend
     kitty
+  ];
+
+  nixpkgs.config.permittedInsecurePackages = [
+  "librewolf-bin-151.0.1-2"
+  "librewolf-bin-unwrapped-151.0.1-2"
   ];
 
   networking.firewall.allowedTCPPorts = [ 53317 ];

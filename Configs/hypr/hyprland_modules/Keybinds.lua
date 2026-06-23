@@ -4,10 +4,10 @@
 
 local mainMod = "SUPER"
 
-hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("foot"))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/auto_detect_terminal.sh"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("librewolf"))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/rofi_clipboard.sh"))
-hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("kdeconnect-app"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("pkill thunar || thunar"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("footclient --app-id bluetui -e bluetui"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("footclient --app-id btop -e btop"))
@@ -18,7 +18,7 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send 'Hyprland doesnt have an
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("quickshell -p $HOME/.config/quickshell/power_menu/"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar -c $HOME/.config/waybar/Hyprland/config.jsonc -s $HOME/.config/waybar/style.css"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("~/Applications/helium-0.12.4.1-x86_64.AppImage https://youtube.com/"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("pkill helium-browser || helium-browser"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
@@ -34,11 +34,13 @@ hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/auto
 hl.bind(mainMod .. " + Backslash", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/smassh.sh"))
 hl.bind(mainMod .. " + tab",    hl.dsp.window.cycle_next(), { repeating = true })
 
-hl.bind(mainMod .. " + ALT + B",    hl.dsp.exec_cmd("~/Applications/helium-0.12.4.1-x86_64.AppImage"))
+hl.bind(mainMod .. " + ALT + B",    hl.dsp.exec_cmd("helium-browser"))
+hl.bind(mainMod .. " + ALT + N",    hl.dsp.exec_cmd("pkill thunar || thunar"))
 hl.bind(mainMod .. " + CTRL + R",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/partial_screenshot.sh"),   { locked = true, repeating = false })
 hl.bind(mainMod .. " + CTRL + S",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/full_screenshot.sh"),      { locked = true, repeating = false })
 hl.bind(mainMod .. " + SHIFT + R",  hl.dsp.exec_cmd(" bash ~/.config/Scripts/screen_recorder.sh"),      { locked = true, repeating = false })
 hl.bind(mainMod .. " + CTRL + E",   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
+hl.bind(mainMod .. " + Escape",     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
 hl.bind("ALT + Return",                hl.dsp.exec_cmd("bash $HOME/.config/Scripts/dashboard_toggle.sh"))
 hl.bind("SHIFT + Return",              hl.dsp.exec_cmd("footclient --app-id aichat -e aichat"))
@@ -70,24 +72,24 @@ hl.bind(mainMod .. " + Down",  hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + Up",    hl.dsp.focus({ workspace = "e-1" }))
 
 for i = 1, 10 do
-    local key = i % 10
-    hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
+  local key = i % 10
+  hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
+  hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
 
 hl.bind("SUPER + SHIFT + V", function()
-    local active = hl.get_active_window()
+  local active = hl.get_active_window()
 
-    if active and active.floating then
-        hl.dispatch(hl.dsp.focus({ window = "tiled" }))
-    else
-        hl.dispatch(hl.dsp.focus({ window = "floating" }))
-    end
+  if active and active.floating then
+    hl.dispatch(hl.dsp.focus({ window = "tiled" }))
+  else
+    hl.dispatch(hl.dsp.focus({ window = "floating" }))
+  end
 end
 )
 
 hl.bind("ALT + Space",          hl.dsp.workspace.toggle_special("magic"))
-hl.bind("ALT + SHIFT + Space",  hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + Space",  hl.dsp.window.move({ workspace = "special:magic" }))
 
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
@@ -120,8 +122,8 @@ hl.bind("XF86AudioPrev",  hl.dsp.exec_cmd("playerctl previous"),      { locked =
 hl.bind("ALT + V",        hl.dsp.exec_cmd("playerctl next"),          { locked = true })
 hl.bind("ALT + C",        hl.dsp.exec_cmd("playerctl play-pause"),    { locked = true })
 hl.bind("ALT + x",        hl.dsp.exec_cmd("playerctl previous"),      { locked = true })
-hl.bind("ALT + B",        hl.dsp.exec_cmd("playerctl position 30+"),  { locked = true })
-hl.bind("ALT + Z",        hl.dsp.exec_cmd("playerctl position 30-"),  { locked = true })
+hl.bind("ALT + B",        hl.dsp.exec_cmd("playerctl position 1+"),   { locked = true, repeating = true })
+hl.bind("ALT + Z",        hl.dsp.exec_cmd("playerctl position 1-"),   { locked = true, repeating = true })
 
 hl.bind("Print",        hl.dsp.exec_cmd("bash ~/.config/Scripts/full_screenshot.sh"),      { locked = true, repeating = false })
 hl.bind("ALT + Print",  hl.dsp.exec_cmd("bash ~/.config/Scripts/partial_screenshot.sh"),   { locked = true, repeating = false })
@@ -134,6 +136,13 @@ hl.bind("ALT + N", hl.dsp.exec_cmd("hyprctl reload && notify-send 'Hyprland' 'Co
 hl.bind("ALT + O", hl.dsp.exec_cmd("systemctl poweroff"),                                                    { locked = true, repeating = false })
 hl.bind("ALT + R", hl.dsp.exec_cmd("systemctl reboot"),                                                      { locked = true, repeating = false })
 hl.bind("ALT + S", hl.dsp.exec_cmd("systemctl suspend ; bash ~/.config/Scripts/random_wall_on_lockscr.sh"),  { locked = true, repeating = false })
+hl.bind("ALT + D", hl.dsp.exec_cmd("rfkill toggle all"),                                                     { locked = true, repeating = false })
+hl.bind("ALT + E", hl.dsp.exec_cmd("rfkill toggle bluetooth"),                                               { locked = true, repeating = false })
+hl.bind("ALT + Y", hl.dsp.exec_cmd("rfkill toggle wifi"),                                                    { locked = true, repeating = false })
+hl.bind("ALT + K", hl.dsp.exec_cmd("pkill kdeconnect-app || kdeconnect-app"),                                { repeating = false })
+hl.bind("ALT + G", hl.dsp.exec_cmd("pkill nwg-look || nwg-look"),                                { repeating = false })
+hl.bind("ALT + Q", hl.dsp.exec_cmd("foot -c $HOME/.config/foot/foot_for_cava.ini --app-id cava -e cava"),    { repeating = false })
+hl.bind("ALT + H", hl.dsp.dpms({ action = "toggle" }))
 
 hl.bind(mainMod .. "+ BracketRight", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. "+ BracketLeft",  hl.dsp.layout("consume_or_expel prev"))

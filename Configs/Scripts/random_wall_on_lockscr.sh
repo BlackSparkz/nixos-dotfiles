@@ -1,9 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-DIR="$HOME/Wallpapers"
+WALL_DIR="$HOME/Wallpapers"
+THEME_DIR="$HOME/.config/hypr/hyprlock_themes"
 
-IMG=$(find "$DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.webp" \) | shuf -n 1)
+IMG=$(find "$WALL_DIR" -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" -o -iname "*.webp" \) | shuf -n 1)
+THEME=$(find "$THEME_DIR" -type f | shuf -n 1)
 
 cp "$IMG" ~/.cache/hyprlock_wall.png
-
-hyprlock
+hyprlock -c "$THEME"

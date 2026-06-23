@@ -4,13 +4,11 @@ set -g fish_greeting ""
 # Basic
 # ==============================
 alias c='clear'
-alias n='nvim'
-alias reload='source ~/.config/fish/config.fish ; kitty @ load-config'
-alias bip='pacman -Qqe > ~/Dotfiles/Configs/installed-pkg/pkglist.txt && notify-send "Backup" "Package list saved successfully" && echo "Saved path: ~/Dotfiles/Configs/installed-pkg/pkglist.txt"'
-alias rip='yay -S --needed --answerclean All --answerdiff None - < Configs/installed-pkg/pkglist.txt'
-alias ls="eza -1h -s modified -r --icons=always --group-directories-first"
 alias cat='bat'
-
+alias e='exit'
+alias reload='source ~/.config/fish/config.fish ; kitty @ load-config'
+alias ls="eza -1h -s modified -r --icons=always --group-directories-first"
+alias bip="pacman -Qqe > ~/hobbyist-dotfiles/Configs/installed-pkg/pkglist.txt && echo 'Package names backed up'"
 # ==============================
 # Navigation
 # ==============================
@@ -37,7 +35,8 @@ alias aptr='sudo apt remove'
 # ==============================
 alias pacup='sudo timeshift --create --comments "Before update" --tags O && yay -Syu'
 alias paci='yay -S --needed'
-alias pacr='yay -Rns'
+alias pacs='yay -Ss'
+alias pacr='yay -Rns --noconfirm'
 
 # ==============================
 # Power control
@@ -61,12 +60,12 @@ alias ff='fastfetch'
 # ==============================
 # Network
 # ==============================
-alias pingg='ping -c 5 archlinux.org'
 alias wifi='nmtui'
 alias bt='bluetui'
 alias gc='git clone'
-
-set -gx EDITOR nvim
+alias send='bash ~/.config/Scripts/kde-send.sh'
 
 # zoxide init fish | source
-# starship init fish | source
+
+set -x VISUAL nvim
+set -x EDITOR nvim

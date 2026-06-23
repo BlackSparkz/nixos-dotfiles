@@ -1,8 +1,4 @@
-#!/bin/bash
-
-# =========================
-# CONFIG
-# =========================
+#!/usr/bin/env bash
 
 DIR="$HOME/Pictures/Screenshots"
 DEVICE_NAME=""
@@ -12,48 +8,28 @@ mkdir -p "$DIR"
 TIME=$(date +"%d-%m-%Y_%H-%M-%S")
 FILE="$DIR/Screenshot_${TIME}.png"
 
-# =========================
-# WAYLAND CHECK
-# =========================
-
 if [ -z "$WAYLAND_DISPLAY" ]; then
     notify-send "❌ Not running in Wayland"
     exit 1
 fi
 
-# =========================
-# AREA SELECT
-# =========================
-
 GEOM=$(slurp 2>/dev/null)
 
-# cancel case
 if [ -z "$GEOM" ]; then
-    notify-send "❌ Screenshot cancelled"
+    notify-send "Screenshot cancelled"
+    paplay /usr/share/sounds/freedesktop/stereo/dialog-error.oga
     exit 0
 fi
 
-# =========================
-# SCREENSHOT
-# =========================
-
 if ! grim -g "$GEOM" "$FILE"; then
     notify-send "❌ Screenshot failed (grim error)"
+    paplay /usr/share/sounds/freedesktop/stereo/dialog-error.oga
     exit 1
 fi
 
-# copy to clipboard
 wl-copy < "$FILE"
 
-# =========================
-# SOUND
-# =========================
-
 [ -f "$SOUND" ] && paplay "$SOUND" &
-
-# =========================
-# KDE CONNECT
-# =========================
 
 if ! pgrep -x kdeconnectd >/dev/null; then
     kdeconnectd &
@@ -71,4 +47,5 @@ if [ -n "$DEVICE_ID" ]; then
     notify-send "Sent to your phone" "$(basename "$FILE")"
 else
     notify-send "⚠️ No device found" "Saved locally"
+    paplay /usr/share/sounds/freedesktop/stereo/message.oga
 fi
