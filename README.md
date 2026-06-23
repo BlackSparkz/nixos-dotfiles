@@ -1,3 +1,5 @@
+### For minimal setup
+
 ```bash
 nix-shell -p git stow
 ```
