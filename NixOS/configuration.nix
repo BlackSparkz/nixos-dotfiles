@@ -92,6 +92,7 @@
     bluetui
     playerctl
     librewolf-bin
+    brave
     btop
     brightnessctl
     gh
