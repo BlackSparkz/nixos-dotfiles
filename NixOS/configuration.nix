@@ -76,12 +76,14 @@
     rofi
     libnotify
     mako
+    python3
     android-tools
     cliphist
     cmus
     wl-clipboard
     slurp
     grim
+    vscodium
     efibootmgr
     nwg-look
     foot
