@@ -1,4 +1,4 @@
-### For minimal setup
+### For no DE setup
 
 ```bash
 nix-shell -p git stow
