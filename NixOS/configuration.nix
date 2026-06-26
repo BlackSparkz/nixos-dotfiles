@@ -82,6 +82,7 @@
     wl-clipboard
     slurp
     grim
+    efibootmgr
     nwg-look
     foot
     stow
