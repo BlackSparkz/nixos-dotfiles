@@ -60,14 +60,13 @@ hl.layer_rule({
 hl.window_rule({
   name  = "Dashboard",
   match = { class = "dashboard" },
-  -- animation = "slide right",
   float = true,
   border_size = 3,
   no_initial_focus = false,
-  move = {1260,730},
+  move = {1260,750},
   opacity = "1.0",
   pin = true,
-  size = {"(monitor_w*0.33)","(monitor_h*0.30)"},
+  size = {"(monitor_w*0.33)","(monitor_h*0.28)"},
 })
 
 hl.window_rule({
@@ -84,6 +83,11 @@ hl.window_rule({
   size = {"(monitor_w*1.00)","(monitor_h*0.18)"},
 })
 
+hl.window_rule({
+  name = "12 rounding",
+  match = { class = "vlc|codium" },
+  rounding = 12,
+})
 
 hl.window_rule({
   name  = "move-hyprland-run",

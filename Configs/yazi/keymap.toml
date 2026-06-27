@@ -5,6 +5,6 @@ prepend_keymap = [
   { on = [ "g", "i" ], run = 'shell --orphan "bash ~/.config/Scripts/kde-send.sh %s"', desc = "Send to connected device using KDEconnect"},
   { on = [ "d", "d" ], run = "remove --permanently --force", desc = "Permanently delete without confirmation" },
   { on = [ "d", "t" ], run = "remove --force", desc = "Move to Trash without confirmation" },
-  { on = [ "g", "c" ], run  = "cd ~/hobbyist-dotfiles/Configs/", desc = "Cd to ~/hobbyist-dotfiles/Configs/" },
+  { on = [ "g", "c" ], run  = "cd ~/nixos-dotfiles/Configs/", desc = "Cd to ~/nixos-dotfiles/Configs/" },
   { on = [ "g", "f" ], run  = "cd ~/.config", desc = "Cd to ~/.config" },
 ]

@@ -18,6 +18,7 @@ hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send 'Hyprland doesnt have an
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pkill wlogout || wlogout"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar -c $HOME/.config/waybar/config_left.jsonc -s $HOME/.config/waybar/style_left.css"))
+-- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("brave"))
 hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
 

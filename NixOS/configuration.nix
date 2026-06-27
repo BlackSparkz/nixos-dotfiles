@@ -73,6 +73,8 @@
     fish
     bat
     waybar
+    cava
+    vlc
     rofi
     libnotify
     mako
