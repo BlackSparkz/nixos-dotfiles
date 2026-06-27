@@ -1,15 +1,15 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-    ./hardware-configuration.nix
-    ];
+  imports = [
+  ./hardware-configuration.nix
+  ];
 
   boot.loader.grub = {
     enable = true;
-    device = "nodev";       # required for UEFI
+    device = "nodev";
     efiSupport = true;
+    theme = "/boot/grub/themes/CyberRe";
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
@@ -61,7 +61,7 @@
     description = "BlackSparkz";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-#neovim
+    #neovim
     ];
   };
 
@@ -71,7 +71,7 @@
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
-    neovim
+      neovim
       git
       fastfetch
       awww
@@ -79,7 +79,6 @@
       bat
       waybar
       cava
-      vlc
       rofi
       libnotify
       mako
