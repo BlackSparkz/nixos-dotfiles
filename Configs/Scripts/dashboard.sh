@@ -27,8 +27,6 @@ draw() {
 
   time=$(date '+%H:%M:%S %A, %d %B %Y')
 
-  # uptime=$(uptime -p | sed 's/up //')
-
   song=$(playerctl metadata --format '{{title}}' 2>/dev/null | cut -c1-25)
   [[ -z "$song" ]] && song="Nothing is playing"
 
@@ -40,7 +38,6 @@ draw() {
   printf "  RAM           %-35s\n" "$ram"
   printf "󰋊  STORAGE       %-35s\n" "$storage"
   printf "  CPU TEMP      %-35s\n" "${temp}°C"
-  # printf "󰔟  UPTIME        %-35s\n" "$uptime"
   printf "󰝚  NOW PLAYING   %-35s\n" "$song"
 }
 
