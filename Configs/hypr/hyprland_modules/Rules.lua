@@ -20,7 +20,6 @@ hl.window_rule({
   float = true,
   move = {1470,820},
   opacity = "1.0",
-  border_size = 2,
   pin = true,
   keep_aspect_ratio = true,
   size = {"(monitor_w*0.22)","(monitor_h*0.22)"},
@@ -61,7 +60,6 @@ hl.window_rule({
   name  = "Dashboard",
   match = { class = "dashboard" },
   float = true,
-  border_size = 3,
   no_initial_focus = false,
   move = {1260,750},
   opacity = "1.0",
@@ -84,9 +82,9 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "12 rounding",
-  match = { class = "vlc|codium" },
-  rounding = 12,
+  name = "VScodium Fullscreen",
+  match = { class = "codium" },
+  fullscreen = true,
 })
 
 hl.window_rule({
@@ -120,7 +118,6 @@ hl.window_rule({
   match = { class = "sensors|bluetui|thunar|nwg-look|org.kde.kdeconnect.sms|aichat|nmtui|battery|pulsemixer|org.gnome.Nautilus|org.kde.kdeconnect.app|localsend|localsend_app" },
   float = true,
   no_initial_focus = false,
-  border_size = 2,
   move = {960,510},
   opacity = "1.0",
   pin = true,
