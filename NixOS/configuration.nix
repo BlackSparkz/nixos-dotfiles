@@ -96,6 +96,7 @@
     playerctl
     librewolf-bin
     brave
+    wlogout
     btop
     brightnessctl
     gh
