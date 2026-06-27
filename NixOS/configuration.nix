@@ -6,7 +6,12 @@
     ./hardware-configuration.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "nodev";       # required for UEFI
+    efiSupport = true;
+  };
+
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
@@ -34,7 +39,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # services.xserver.enable = true;
+# services.xserver.enable = true;
 
   services.xserver.xkb = {
     layout = "us";
@@ -56,7 +61,7 @@
     description = "BlackSparkz";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
-    #neovim
+#neovim
     ];
   };
 
@@ -67,48 +72,48 @@
 
   environment.systemPackages = with pkgs; [
     neovim
-    git
-    fastfetch
-    awww
-    fish
-    bat
-    waybar
-    cava
-    vlc
-    rofi
-    libnotify
-    mako
-    python3
-    android-tools
-    cliphist
-    cmus
-    wl-clipboard
-    slurp
-    grim
-    vscodium
-    efibootmgr
-    nwg-look
-    foot
-    stow
-    eza
-    yazi
-    bluez
-    bluez-tools
-    bluetui
-    playerctl
-    librewolf-bin
-    brave
-    wlogout
-    btop
-    brightnessctl
-    gh
-    localsend
-    kitty
-  ];
+      git
+      fastfetch
+      awww
+      fish
+      bat
+      waybar
+      cava
+      vlc
+      rofi
+      libnotify
+      mako
+      python3
+      android-tools
+      cliphist
+      cmus
+      wl-clipboard
+      slurp
+      grim
+      vscodium
+      efibootmgr
+      nwg-look
+      foot
+      stow
+      eza
+      yazi
+      bluez
+      bluez-tools
+      bluetui
+      playerctl
+      librewolf-bin
+      brave
+      wlogout
+      btop
+      brightnessctl
+      gh
+      localsend
+      kitty
+      ];
 
   nixpkgs.config.permittedInsecurePackages = [
-  "librewolf-bin-151.0.1-2"
-  "librewolf-bin-unwrapped-151.0.1-2"
+    "librewolf-bin-151.0.1-2"
+      "librewolf-bin-unwrapped-151.0.1-2"
   ];
 
   networking.firewall.allowedTCPPorts = [ 53317 ];
