@@ -8,6 +8,7 @@ hl.workspace_rule({ workspace = "3", layout = "dwindle" })
 hl.window_rule({
   name   = "float-file-pickers",
   match  = { title = "^(Open File|Open Folder|Open|Save|Save As|Export|Import|Choose File|Rename)$" },
+  match  = { class = "xdg-desktop-portal-gtk" },
   float  = true,
   center = true,
   decorate = false

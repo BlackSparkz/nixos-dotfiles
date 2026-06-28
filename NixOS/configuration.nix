@@ -73,6 +73,7 @@
   environment.systemPackages = with pkgs; [
       neovim
       git
+      os-prober
       fastfetch
       awww
       fish
