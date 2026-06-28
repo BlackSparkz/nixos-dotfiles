@@ -82,6 +82,8 @@
       tree
       cava
       rofi
+      ffmpeg
+      hyprlock
       libnotify
       mako
       python3
