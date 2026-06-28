@@ -37,9 +37,9 @@ hl.bind(mainMod .. " + tab",    hl.dsp.window.cycle_next(), { repeating = true }
 
 hl.bind(mainMod .. " + ALT + B",    hl.dsp.exec_cmd("helium-browser"))
 hl.bind(mainMod .. " + ALT + N",    hl.dsp.exec_cmd("pkill thunar || thunar"))
-hl.bind(mainMod .. " + CTRL + R",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/partial_screenshot.sh"),   { locked = true, repeating = false })
-hl.bind(mainMod .. " + CTRL + S",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/full_screenshot.sh"),      { locked = true, repeating = false })
-hl.bind(mainMod .. " + SHIFT + R",  hl.dsp.exec_cmd(" bash ~/.config/Scripts/screen_recorder.sh"),      { locked = true, repeating = false })
+hl.bind(mainMod .. " + CTRL + R",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/partial_screenshot.sh"),     { locked = true, repeating = false })
+hl.bind(mainMod .. " + CTRL + S",   hl.dsp.exec_cmd(" bash ~/.config/Scripts/full_screenshot.sh"),        { locked = true, repeating = false })
+hl.bind(mainMod .. " + SHIFT + R",  hl.dsp.exec_cmd(" bash ~/.config/Scripts/screen_recorder.sh"),        { locked = true, repeating = false })
 hl.bind(mainMod .. " + CTRL + E",   hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 hl.bind(mainMod .. " + Escape",     hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
 
@@ -47,6 +47,7 @@ hl.bind("ALT + Return",                hl.dsp.exec_cmd("bash $HOME/.config/Scrip
 hl.bind("SHIFT + Return",              hl.dsp.exec_cmd("footclient --app-id aichat -e aichat"))
 hl.bind("CTRL + Backslash",            hl.dsp.window.pseudo())
 hl.bind("CTRL + SHIFT + Backslash",    hl.dsp.layout("togglesplit"))    -- dwindle only
+hl.bind("CTRL + SHIFT + Z",            hl.dsp.exec_cmd(" bash ~/.config/Scripts/animation_switcher.sh"),  { repeating = false })
 
 hl.bind(mainMod .. " + left",          hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right",         hl.dsp.focus({ direction = "right" }))

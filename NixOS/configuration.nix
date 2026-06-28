@@ -79,6 +79,7 @@
       fish
       bat
       waybar
+      tree
       cava
       rofi
       libnotify
