@@ -67,11 +67,11 @@ hl.bind(mainMod .. " + SHIFT + L",     hl.dsp.window.move({ direction = "r" }))
 hl.bind(mainMod .. " + SHIFT + K",     hl.dsp.window.move({ direction = "u" }))
 hl.bind(mainMod .. " + SHIFT + J",     hl.dsp.window.move({ direction = "d" }))
 
-hl.bind(mainMod .. " + I",     hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + U",     hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + I",             hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + U",             hl.dsp.focus({ workspace = "e-1" }))
 
-hl.bind(mainMod .. " + Down",  hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + Up",    hl.dsp.focus({ workspace = "e-1" }))
+hl.bind(mainMod .. " + Down",          hl.dsp.focus({ workspace = "e+1" }))
+hl.bind(mainMod .. " + Up",            hl.dsp.focus({ workspace = "e-1" }))
 
 for i = 1, 10 do
   local key = i % 10
@@ -144,8 +144,12 @@ hl.bind("ALT + Y", hl.dsp.exec_cmd("rfkill toggle wifi"),                       
 hl.bind("ALT + K", hl.dsp.exec_cmd("pkill kdeconnect-app || kdeconnect-app"),                                { repeating = false })
 hl.bind("ALT + G", hl.dsp.exec_cmd("pkill nwg-look || nwg-look"),                                            { repeating = false })
 hl.bind("ALT + Q", hl.dsp.exec_cmd("foot -c $HOME/.config/foot/foot_for_cava.ini --app-id cava -e cava"),    { repeating = false })
-hl.bind("ALT + H", hl.dsp.dpms({ action = "toggle" }))
 hl.bind("ALT + J", hl.dsp.exec_cmd("codium"),                                                                { repeating = false })
+hl.bind("ALT + H", function()
+  hl.timer(function()
+    hl.dispatch(hl.dsp.dpms({ action = "disable" }))
+  end, {timeout = 500, type = "oneshot"})
+end)
 
 hl.bind(mainMod .. "+ BracketRight", hl.dsp.layout("consume_or_expel next"))
 hl.bind(mainMod .. "+ BracketLeft",  hl.dsp.layout("consume_or_expel prev"))
