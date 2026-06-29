@@ -1,7 +1,15 @@
 #!/usr/bin/env bash
 
 WALL_DIR="$HOME/Wallpapers"
-WALL=$(find "$WALL_DIR" -type f | shuf -n 1)
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/wallpaper_queue"
+
+if [[ ! -s "$CACHE" ]]; then
+    find "$WALL_DIR" -type f | shuf > "$CACHE"
+fi
+
+read -r WALL < "$CACHE"
+
+tail -n +2 "$CACHE" > "$CACHE.tmp" && mv "$CACHE.tmp" "$CACHE"
 
 types=(wipe any)
 chosen=${types[$RANDOM % ${#types[@]}]}
