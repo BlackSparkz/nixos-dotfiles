@@ -38,7 +38,7 @@ else
 fi
 
 if [[ -f ${SYSTEM_NIXOS}/configuration.nix && ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
-  sudo mv "${SYSTEM_NIXOS}/configuration.nix" "${SYSTEM_NIXOS}/configuration.nix-$(date).bak"
+  sudo rm -rf "${SYSTEM_NIXOS}/configuration.nix"
 fi
 if [[ ! -L ${SYSTEM_NIXOS}/configuration.nix ]]; then
   sudo ln -s "${NIXOS_DIR}/configuration.nix" "${SYSTEM_NIXOS}/configuration.nix"

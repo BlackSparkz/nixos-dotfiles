@@ -24,6 +24,12 @@ alias dnfi='sudo dnf install'
 alias dnfr='sudo dnf remove'
 
 # ==============================
+# NixOS
+# ==============================
+alias build='sudo nixos-rebuild switch'
+alias dg='sudo nix-collect-garbage -d && sudo nixos-rebuild boot'
+
+# ==============================
 # Debian based
 # ==============================
 alias aptup='sudo apt update && sudo apt upgrade -y'
