@@ -4,8 +4,7 @@ function gacp
         return
     end
 
-    cd ~/hobbyist-dotfiles/
-    python3 ~/hobbyist-dotfiles/Configs/Scripts/structure_update.py
+    cd ~/nixos-dotfiles/
     git add .
 
     if git commit -m (string join " " $argv)
