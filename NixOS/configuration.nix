@@ -14,7 +14,10 @@
 
   boot.loader.efi.canTouchEfiVariables = true;
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   boot.kernelPackages = pkgs.linuxPackages_latest;
+
   console.font = "latarcyrheb-sun32";
 
   networking.hostName = "NixOS";
