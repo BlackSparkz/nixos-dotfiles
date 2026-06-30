@@ -93,6 +93,7 @@
       telegram-desktop
       android-tools
       cliphist
+      mpv
       cmus
       wl-clipboard
       slurp
