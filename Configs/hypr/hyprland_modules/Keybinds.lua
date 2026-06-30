@@ -4,8 +4,12 @@
 
 local mainMod = "SUPER"
 
+local primary_browser = "librewolf"
+local secondary_browser = "brave"
+local terminal = "kitty"
+
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/auto_detect_terminal.sh"))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("librewolf"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(primary_browser))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/rofi_clipboard.sh"))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("pkill thunar || thunar"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("footclient --app-id bluetui -e bluetui"))
@@ -19,8 +23,8 @@ hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pkill wlogout || wlogout"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar -c $HOME/.config/waybar/config_left.jsonc -s $HOME/.config/waybar/style_left.css"))
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar"))
-hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("brave"))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("kitty"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(secondary_browser))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal))
 
 hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + W", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/random_wall_on_home.sh"))
@@ -132,7 +136,6 @@ hl.bind("ALT + Print",  hl.dsp.exec_cmd("bash ~/.config/Scripts/partial_screensh
 hl.bind("CTRL + Print", hl.dsp.exec_cmd("bash ~/.config/Scripts/screen_recorder.sh"),      { locked = true, repeating = false })
 
 hl.bind("ALT + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
-hl.bind("ALT + W", hl.dsp.exec_cmd("pkill rofi||bash ~/.config/Scripts/wallpaper_switcher.sh"))
 hl.bind("ALT + L", hl.dsp.exec_cmd("bash ~/.config/Scripts/random_wall_on_lockscr.sh"),                      { locked = false, repeating = false })
 hl.bind("ALT + N", hl.dsp.exec_cmd("hyprctl reload && notify-send 'Hyprland' 'Config reloaded'"),            { locked = true, repeating = false })
 hl.bind("ALT + O", hl.dsp.exec_cmd("systemctl poweroff"),                                                    { locked = true, repeating = false })
@@ -143,6 +146,7 @@ hl.bind("ALT + E", hl.dsp.exec_cmd("rfkill toggle bluetooth"),                  
 hl.bind("ALT + Y", hl.dsp.exec_cmd("rfkill toggle wifi"),                                                    { locked = true, repeating = false })
 hl.bind("ALT + K", hl.dsp.exec_cmd("pkill kdeconnect-app || kdeconnect-app"),                                { repeating = false })
 hl.bind("ALT + G", hl.dsp.exec_cmd("pkill nwg-look || nwg-look"),                                            { repeating = false })
+hl.bind("ALT + W", hl.dsp.exec_cmd("pkill rofi || bash ~/.config/Scripts/wallpaper_switcher.sh"),            { repeating = false })
 hl.bind("ALT + Q", hl.dsp.exec_cmd("foot -c $HOME/.config/foot/foot_for_cava.ini --app-id cava -e cava"),    { repeating = false })
 hl.bind("ALT + J", hl.dsp.exec_cmd("codium"),                                                                { repeating = false })
 hl.bind("ALT + H", function()

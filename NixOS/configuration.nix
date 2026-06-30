@@ -87,6 +87,7 @@
       libnotify
       mako
       python3
+      telegram-desktop
       android-tools
       cliphist
       cmus
