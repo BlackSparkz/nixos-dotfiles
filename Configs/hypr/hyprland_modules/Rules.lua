@@ -84,7 +84,7 @@ hl.window_rule({
 
 hl.window_rule({
   name = "Fullscreen apps",
-  match = { class = "codium|Waydroid" },
+  match = { class = "codium|Waydroid|waydroid.app.morphe.android.youtube" },
   fullscreen = true,
 })
 

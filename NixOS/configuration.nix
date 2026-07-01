@@ -1,9 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-  ./hardware-configuration.nix
-  ];
+  imports = [ ./hardware-configuration.nix ];
 
   boot.loader.grub = {
     enable = true;
@@ -23,7 +21,9 @@
   networking.hostName = "NixOS";
 
   documentation.nixos.enable = false;
+
   networking.networkmanager.enable = true;
+
   hardware.bluetooth.enable = true;
 
   time.timeZone = "Asia/Kolkata";
@@ -68,20 +68,22 @@
     ];
   };
 
-  virtualisation.waydroid.enable = true;
+  # virtualisation.waydroid.enable = true;
 
   # For newer kernels (if you run into nftables/iptables issues)
-  virtualisation.waydroid.package = pkgs.waydroid-nftables;
+  # virtualisation.waydroid.package = pkgs.waydroid-nftables;
 
   programs.fish.enable = true;
+
   programs.kdeconnect.enable = true;
+
   programs.hyprland.enable = true;
+
   environment.sessionVariables.NIXOS_OZONE_WL = "1";
 
   environment.systemPackages = with pkgs; [
       neovim
       git
-      os-prober
       fastfetch
       awww
       fish
