@@ -6,9 +6,8 @@ set -g fish_greeting ""
 alias c='clear'
 alias cat='bat'
 alias e='exit'
-alias reload='source ~/.config/fish/config.fish ; kitty @ load-config'
+alias reload='source ~/.config/fish/config.fish && echo "Done"'
 alias ls="eza -1h -s modified -r --icons=always --group-directories-first"
-alias bip="pacman -Qqe > ~/hobbyist-dotfiles/Configs/installed-pkg/pkglist.txt && echo 'Package names backed up'"
 # ==============================
 # Navigation
 # ==============================
@@ -70,7 +69,6 @@ alias ff='fastfetch'
 alias wifi='nmtui'
 alias bt='bluetui'
 alias gc='git clone'
-alias send='bash ~/.config/Scripts/kde-send.sh'
 
 # zoxide init fish | source
 
