@@ -68,6 +68,11 @@
     ];
   };
 
+  virtualisation.waydroid.enable = true;
+
+  # For newer kernels (if you run into nftables/iptables issues)
+  virtualisation.waydroid.package = pkgs.waydroid-nftables;
+
   programs.fish.enable = true;
   programs.kdeconnect.enable = true;
   programs.hyprland.enable = true;

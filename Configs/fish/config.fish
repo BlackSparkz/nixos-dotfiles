@@ -27,6 +27,7 @@ alias dnfr='sudo dnf remove'
 # NixOS
 # ==============================
 alias build='sudo nixos-rebuild switch'
+alias nix='nvim ~/nixos-dotfiles/NixOS/configuration.nix'
 alias dg='sudo nix-collect-garbage -d && sudo nixos-rebuild boot'
 
 # ==============================

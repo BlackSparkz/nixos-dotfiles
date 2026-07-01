@@ -83,8 +83,8 @@ hl.window_rule({
 })
 
 hl.window_rule({
-  name = "VScodium Fullscreen",
-  match = { class = "codium" },
+  name = "Fullscreen apps",
+  match = { class = "codium|Waydroid" },
   fullscreen = true,
 })
 
