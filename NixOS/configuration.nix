@@ -123,7 +123,7 @@
       brightnessctl
       gh
       localsend
-      kitty
+      alacritty
       ];
 
   nixpkgs.config.permittedInsecurePackages = [
