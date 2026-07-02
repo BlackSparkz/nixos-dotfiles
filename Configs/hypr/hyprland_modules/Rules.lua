@@ -27,6 +27,11 @@ hl.window_rule({
   no_initial_focus = true,
 })
 
+hl.window_rule({
+    match = { class = "cmus"},
+    workspace = "4 silent",
+})
+
 hl.layer_rule({
   name  = "Essential blur",
   match = { namespace = "logout_dialog|rofi|quickshell" },
