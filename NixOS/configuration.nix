@@ -90,6 +90,7 @@
       bat
       waybar
       tree
+      sound-theme-freedesktop
       cava
       rofi
       ffmpeg

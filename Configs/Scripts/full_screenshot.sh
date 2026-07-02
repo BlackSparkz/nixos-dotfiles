@@ -2,8 +2,7 @@
 
 DIR="$HOME/Pictures/Screenshots"
 DEVICE_NAME=""   # Optional
-
-SOUND="/usr/share/sounds/freedesktop/stereo/screen-capture.oga"
+SOUND="/run/current-system/sw/share/sounds/freedesktop/stereo/screen-capture.oga"
 
 mkdir -p "$DIR"
 TIME=$(date +"%d-%m-%Y_%H-%M-%S")
@@ -15,7 +14,7 @@ if ! grim - | tee "$FILE" | wl-copy; then
 fi
 
 if [ -f "$SOUND" ]; then
-    paplay "$SOUND" &
+    pw-play "$SOUND" &
 fi
 
 for i in {1..10}; do

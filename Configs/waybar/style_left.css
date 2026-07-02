@@ -43,7 +43,7 @@ window#waybar {
   opacity: 0.6;
 }
 
-#custom-arch,
+#custom-logo,
 #cpu,
 #clock,
 #mpris,
@@ -69,7 +69,7 @@ window#waybar {
 #custom-menu {
   padding: 2px 0;
 }
-#custom-arch,
+#custom-logo,
 #custom-menu{
   border-radius: 24px 24px 0px 0px;
 }

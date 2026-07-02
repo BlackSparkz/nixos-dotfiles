@@ -12,7 +12,7 @@
   ],
 
   "custom/logo": {
-    "format" : "󰣇   Hyprland",
+    "format" : "   Hyprland",
     "tooltip": false,
     "tooltip-format": "App launcher",
     "on-click": "pkill rofi || rofi -show drun -theme ~/.config/rofi/glass_minimal.rasi",

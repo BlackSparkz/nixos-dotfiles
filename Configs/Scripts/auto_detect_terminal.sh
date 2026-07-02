@@ -26,4 +26,4 @@ for term in "${TERMINALS[@]}"; do
 done
 
 notify-send "No Terminal Found" "Please install a terminal emulator"
-paplay /usr/share/sounds/freedesktop/stereo/message.oga
+pw-play /run/current-system/sw/share/sounds/freedesktop/stereo/message.oga

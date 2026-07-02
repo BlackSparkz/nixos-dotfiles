@@ -11,7 +11,7 @@
   "spacing": 0,
 
   "modules-left": [
-    "custom/arch",
+    "custom/logo",
     "clock",
     "hyprland/workspaces"
     //"cpu"
@@ -78,8 +78,8 @@
     ]
   },
 
-  "custom/arch": {
-      "format" : "󰣇",
+  "custom/logo": {
+      "format" : "",
       "tooltip": false,
       "tooltip-format": "App launcher",
       "on-click": "pkill rofi || rofi -show drun",
@@ -224,12 +224,12 @@
     ],
     "reverse-scrolling": true,
     "smooth-scrolling-threshold": 0.2,
-    "tooltip": false
+    "tooltip": true
   },
   "battery": {
     "interval": 5,
     "states": {
-      "critical": 10
+      "critical": 15
     },
     "format": "{icon}",
     "format-icons": { "default": [ "󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹" ] },

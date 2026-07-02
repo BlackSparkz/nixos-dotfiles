@@ -1,4 +1,5 @@
 #!/bin/bash
+
 WALL=$(echo $1)
 types=(wipe any)
 chosen=${types[$RANDOM % ${#types[@]}]}
