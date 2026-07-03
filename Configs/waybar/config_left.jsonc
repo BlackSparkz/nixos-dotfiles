@@ -17,15 +17,17 @@
     //"cpu"
   ],
 
-  "modules-center": ["mpris"],
+  "modules-center": [
+    "mpris"
+  ],
 
   "modules-right": [
     "group/extras",
     "network",
     "bluetooth",
     "pulseaudio#microphone",
-    "group/audio",
-    "group/brightness",
+    "pulseaudio",
+    "backlight",
     "battery",
     "custom/powermenu"
   ],
@@ -36,9 +38,9 @@
     "format-icons": {
       "active": "<span size='12pt'></span>",
       "default": "<span size='12pt'></span>"},
-    "persistent-workspaces": {
-      "*": 3
-    }
+      "persistent-workspaces": {
+        "*": 3
+      }
   },
 
   "group/extras": {
@@ -53,38 +55,14 @@
       "tray"
     ]
   },
-  "group/brightness": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 400,
-      "children-class": "brightness",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "backlight",
-      "backlight/slider"
-    ]
-  },
-  "group/audio": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 400,
-      "children-class": "audio",
-      "transition-left-to-right": false
-    },
-    "modules": [
-      "pulseaudio",
-      "pulseaudio/slider"
-    ]
-  },
 
   "custom/logo": {
-      "format" : "",
-      "tooltip": false,
-      "tooltip-format": "App launcher",
-      "on-click": "pkill rofi || rofi -show drun",
-      "on-click-right": "foot"
-    },
+    "format" : "",
+    "tooltip": false,
+    "tooltip-format": "App launcher",
+    "on-click": "pkill rofi || rofi -show drun",
+    "on-click-right": "foot"
+  },
 
   "cpu": {
     "format": "{icon}",
@@ -105,11 +83,11 @@
   "clock": {
     "interval": 1,
     "format": "{:%H\n%M}",
-      "format-alt": "{:%d\n%m\n%y}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    "format-alt": "{:%d\n%m\n%y}",
+    "tooltip-format": "<tt><small>{calendar}</small></tt>"
   },
 
-   "mpris": {
+  "mpris": {
     "smooth-scrolling-threshold": 2.0,
     "tooltip": false,
     "tooltip-format": "{title}",
@@ -152,40 +130,38 @@
     "format-ethernet": "{icon}",
     "format-disconnected": "{icon}",
     "format-disabled": "{icon}",
-    "interval": 5,
-    "tooltip-format": "{essid}\t{gwaddr}",
-    "on-click": "rfkill toggle wifi",
-    "on-click-right": "foot -e nmtui",
+    "interval": 2,
+    "tooltip-format-wifi": "Connected: {essid} ({signalStrength}%)",
+    "on-click-right": "footclient --app-id nmtui -e nmtui",
+    "on-click-middle": "rfkill toggle wifi",
     "tooltip": true,
     "max-length": 20
   },
+
   "bluetooth": {
-    "interval": 5,
+    "interval": 2,
     "format-on": "<span size='14pt'>󰂯</span>",
     "format-off": "<span size='14pt'>󰂲</span>",
     "format-disabled": "<span size='14pt'>󰂲</span>",
     "format-connected": "<span size='14pt'>󰂱</span>",
     "format-no-controller": "span size='14pt'>󰂯</span>",
     "tooltip": true,
-    "tooltip-format": "{device_enumerate}",
-    "tooltip-format-enumerate-connected": "{device_address}",
+    "tooltip-format-connected": "Connected: {device_enumerate}",
+    "tooltip-format-enumerate-connected": "{device_alias}",
     "tooltip-format-enumerate-connected-battery": "{device_address} | Battery: {device_battery_percentage}%",
-    "on-click": "rfkill toggle bluetooth",
-    "on-click-right": "foot -e bluetui "
+    "on-click-middle": "rfkill toggle bluetooth",
+    "on-click-right": "footclient --app-id bluetui -e bluetui"
   },
+
   "pulseaudio#microphone": {
     "format": "{format_source}",
     "format-source": "<span size='14pt'>󰍬</span>",
     "format-source-muted": "<span size='14pt'>󰍭</span>",
-    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
-    "on-click-right": "pavucontrol -t 4",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",
+    "on-click-right": "footclient --app-id pulsemixer -e pulsemixer",
     "tooltip": false
   },
-  "pulseaudio/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "vertical"
-  },
+
   "pulseaudio": {
     "interval": 1,
     "format": "{icon}",
@@ -195,39 +171,32 @@
       "<span size='14pt'>󰕾</span>"
     ],
     "format-muted": "<span size='14pt'>󰝟</span>",
-    "on-click-right": "pavucontrol -t 3",
-    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-click-right": "footclient --app-id pulsemixer -e pulsemixer",
+    "on-click-middle": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "reverse-scrolling": true,
     "tooltip": true,
-    "tooltip-format": "Volume: {volume}%\n{desc}",
+    "tooltip-format": "Volume: {volume}%",
     "ignored-sinks": [
       "Easy Effects Sink"
     ]
   },
-  "backlight/slider": {
-    "min": 0,
-    "max": 100,
-    "orientation": "vertical",
-    "device": "intel_backlight"
-  },
+
   "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}",
-    "format-icons": [
-      "󰃚",
-      "󰃛",
-      "󰃜",
-      "󰃝",
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ],
+    "format-icons": [ "󰃚","󰃛","󰃜","󰃝","󰃞","󰃟","󰃠" ],
     "reverse-scrolling": true,
-    "smooth-scrolling-threshold": 0.2,
-    "tooltip": true
+    "smooth-scrolling-threshold": 2.0,
+    "on-scroll-up": "brightnessctl set 1%+",
+    "on-scroll-down": "brightnessctl set 1%-",
+    "tooltip": true,
+    "tooltip-format": "Brightness: {percent}%",
+    "format": "{icon}",
+    "on-click": "brightnessctl set 10%-",
+    "on-click-right": "brightnessctl set 10%+",
+    "on-click-middle": "bash ~/.config/Scripts/random_wall_on_home.sh"
   },
+
   "battery": {
-    "interval": 5,
+    "interval": 2,
     "states": {
       "critical": 15
     },
@@ -243,6 +212,8 @@
   "custom/powermenu": {
     "format": "<span size='11pt'></span>",
     "on-click": "wlogout",
+    "on-click-middle": "systemctl poweroff",
+    "on-click-right": "wlogout",
     "tooltip": false
   }
 }

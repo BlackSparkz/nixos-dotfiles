@@ -32,7 +32,20 @@ window#waybar {
   padding: 12px 0px;
 }
 
-#custom-arch:hover,
+tooltip {
+  background: rgba(00, 00, 00, 0.9);
+  border-radius: 48px;
+  transition: all 0.2s ease-in-out;
+}
+
+tooltip label {
+  color: white;
+  border-radius: 48px;
+  transition: all 0.2s ease-in-out;
+  padding: 0px 20px 0px 20px;
+}
+
+#custom-logo:hover,
 #cpu:hover,
 #network:hover,
 #bluetooth:hover,

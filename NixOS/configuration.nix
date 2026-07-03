@@ -89,6 +89,7 @@
       fish
       bat
       waybar
+      pulsemixer
       tree
       sound-theme-freedesktop
       cava

@@ -25,5 +25,5 @@ for term in "${TERMINALS[@]}"; do
   fi
 done
 
+pw-play /run/current-system/sw/share/sounds/freedesktop/stereo/dialog-error.oga
 notify-send "No Terminal Found" "Please install a terminal emulator"
-pw-play /run/current-system/sw/share/sounds/freedesktop/stereo/message.oga
