@@ -7,6 +7,7 @@
     enable = true;
     device = "nodev";
     efiSupport = true;
+    useOSProber = true;
     theme = "/boot/grub/themes/CyberRe";
   };
 
@@ -92,6 +93,7 @@
       pulsemixer
       tree
       sound-theme-freedesktop
+      os-prober
       cava
       rofi
       ffmpeg
