@@ -87,6 +87,7 @@
       git
       fastfetch
       awww
+      gparted
       fish
       bat
       waybar
