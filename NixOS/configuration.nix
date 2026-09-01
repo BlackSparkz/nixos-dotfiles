@@ -112,6 +112,7 @@
       vscodium
       efibootmgr
       nwg-look
+      thunar
       foot
       stow
       eza
