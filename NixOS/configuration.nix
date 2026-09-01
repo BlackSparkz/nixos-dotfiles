@@ -8,7 +8,7 @@
     device = "nodev";
     efiSupport = true;
     useOSProber = true;
-    theme = "/boot/grub/themes/CyberRe";
+  # theme = "/boot/grub/themes/CyberRe";
   };
 
   boot.loader.efi.canTouchEfiVariables = true;
