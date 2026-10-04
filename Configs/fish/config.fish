@@ -6,8 +6,12 @@ set -g fish_greeting ""
 alias c='clear'
 alias cat='bat'
 alias e='exit'
-alias reload='source ~/.config/fish/config.fish && echo "Done"'
+alias q='exit'
+alias reload='source ~/.config/fish/config.fish ; kitty @ load-config'
 alias ls="eza -1h -s modified -r --icons=always --group-directories-first"
+alias gnomebackup="dconf dump / > ~/hobbyist-dotfiles/Gnome/gnome-settings-backup.conf && notify-send 'Gnome settings backed up'"
+alias bip="pacman -Qqe > ~/hobbyist-dotfiles/Configs/installed-pkg/pkglist.txt && echo 'Package names backed up'"
+
 # ==============================
 # Navigation
 # ==============================
@@ -23,13 +27,6 @@ alias dnfi='sudo dnf install'
 alias dnfr='sudo dnf remove'
 
 # ==============================
-# NixOS
-# ==============================
-alias build='sudo nixos-rebuild switch'
-alias nix='nvim ~/nixos-dotfiles/NixOS/configuration.nix'
-alias dg='sudo nix-collect-garbage -d && sudo nixos-rebuild boot'
-
-# ==============================
 # Debian based
 # ==============================
 alias aptup='sudo apt update && sudo apt upgrade -y'
@@ -39,8 +36,8 @@ alias aptr='sudo apt remove'
 # ==============================
 # Arch based
 # ==============================
-alias pacup='sudo timeshift --create --comments "Before update" --tags O && yay -Syu'
-alias paci='yay -S --needed'
+alias pacup='sudo timeshift --create --comments "Before update" --tags O && yay -Syu --answerclean None --answerdiff None --noconfirm'
+alias paci='yay -S --needed --answerclean None --answerdiff None --noconfirm'
 alias pacs='yay -Ss'
 alias pacr='yay -Rns --noconfirm'
 
@@ -62,15 +59,16 @@ alias tsl='sudo timeshift --list'
 alias timeshift='sudo timeshift-gtk'
 alias gparted='sudo -E gparted'
 alias ff='fastfetch'
-
+alias plasma='dbus-run-session startplasma-wayland'
 # ==============================
 # Network
 # ==============================
 alias wifi='nmtui'
 alias bt='bluetui'
 alias gc='git clone'
+alias send='bash ~/.config/Scripts/kde-send.sh'
 
-# zoxide init fish | source
+zoxide init fish | source
 
 set -x VISUAL nvim
 set -x EDITOR nvim
