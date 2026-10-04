@@ -57,7 +57,6 @@ FEDORA_PKGS=(
   android-tools
   cliphist
   mpv
-  cmus
   wl-clipboard
   slurp
   grim
@@ -72,7 +71,6 @@ FEDORA_PKGS=(
   bluez-tools
   playerctl
   librewolf
-  brave
   wlogout
   btop
   brightnessctl
