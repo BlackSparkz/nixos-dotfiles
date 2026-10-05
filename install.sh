@@ -39,7 +39,12 @@ fi
 # ── fedora package list (edit to taste) ───────────────────────────────────────
 FEDORA_PKGS=(
   rfkill
+  helium-bin
   git
+  neovim
+  kde-connect
+  hyprland
+  hyprland-guitils
   fastfetch
   awww
   fish
@@ -80,6 +85,14 @@ FEDORA_PKGS=(
   fontconfig
 )
 
+# COPR repos, format: "owner/project" (add yours here)
+FEDORA_COPRS=(
+  "anudeepd/localsend"
+  "imput/helium"
+  "lihaohong/yazi"
+  "lionheartp/Hyprland"
+)
+
 DOTFILES="${HOME}/nixos-dotfiles"
 NIXOS_DIR="${DOTFILES}/NixOS"
 SYSTEM_NIXOS="/etc/nixos"
@@ -89,6 +102,14 @@ if [[ "${DISTRO}" == nixos ]]; then
   require git stow rfkill nix nixos-rebuild
 else
   require sudo dnf
+  if (( ${#FEDORA_COPRS[@]} )); then
+    log "Enabling COPR repos"
+    sudo dnf install -y dnf-plugins-core
+    for repo in "${FEDORA_COPRS[@]}"; do
+      sudo dnf copr enable -y "${repo}"
+      ok "COPR enabled: ${repo}"
+    done
+  fi
   log "Installing packages via dnf"
   sudo dnf install --skip-unavailable -y "${FEDORA_PKGS[@]}"
   ok "Packages installed"
