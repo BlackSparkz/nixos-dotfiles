@@ -18,7 +18,7 @@ hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("footclient --app-id btop -e btop"))
 
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("Telegram"))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("footclient --app-id yazi -e yazi"))
-hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send 'Hyprland doesnt have an overview feature'"))
+hl.bind(mainMod .. " + O", hl.dsp.exec_cmd("notify-send \"Hyprland doesn't have an overview feature\""))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("pkill wlogout || wlogout"))
 hl.bind(mainMod .. " + Q", hl.dsp.window.close(), { repeating = true })
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("pkill waybar || waybar -c $HOME/.config/waybar/config_left.jsonc -s $HOME/.config/waybar/style_left.css"))
