@@ -12,7 +12,7 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("bash $HOME/.config/Scripts/auto_dete
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(primary_browser))
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("footclient --app-id cmus -e cmus"), { repeating = false })
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("pkill thunar || thunar"))
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("footclient --app-id bluetui -e bluetui"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("pkill blueman-manager || blueman-manager"))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "maximized", action = "toggle" }))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("footclient --app-id btop -e btop"))
 
