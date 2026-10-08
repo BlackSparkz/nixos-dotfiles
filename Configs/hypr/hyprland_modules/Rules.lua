@@ -71,6 +71,7 @@ hl.window_rule({
   opacity = "1.0",
   pin = true,
   size = {"(monitor_w*0.33)","(monitor_h*0.28)"},
+  animation = "slide bottom",
 })
 
 hl.window_rule({
