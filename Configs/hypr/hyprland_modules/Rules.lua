@@ -88,11 +88,11 @@ hl.window_rule({
   size = {"(monitor_w*1.00)","(monitor_h*0.18)"},
 })
 
-hl.window_rule({
-  name = "Fullscreen apps",
-  match = { class = "codium|Waydroid|waydroid.app.morphe.android.youtube" },
-  fullscreen = true,
-})
+-- hl.window_rule({
+  -- name = "Fullscreen apps",
+  -- match = { class = "codium|Waydroid|waydroid.app.morphe.android.youtube" },
+  -- fullscreen = true,
+-- })
 
 hl.window_rule({
   name  = "move-hyprland-run",

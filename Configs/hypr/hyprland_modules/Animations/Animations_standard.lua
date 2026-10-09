@@ -7,7 +7,7 @@ hl.config({
 hl.curve("easeOutQuint",   { type = "bezier", points = { {0.23, 1},    {0.32, 1}    } })
 hl.curve("almostLinear",   { type = "bezier", points = { {0.5, 0.5},   {0.75, 1}    } })
 hl.curve("quick",          { type = "bezier", points = { {0.1, 0},     {0.0, 1}     } })
-hl.curve("hobbyist",       { type = "spring", mass = 1, stiffness = 90, dampening = 12 } )
+hl.curve("hobbyist",       { type = "spring", mass = 1, stiffness = 100, dampening = 14 } )
 
 hl.animation({ leaf = "global",        enabled = true,  speed = 2,    bezier = "default" })
 hl.animation({ leaf = "border",        enabled = true,  speed = 1,    bezier = "almostLinear" })
