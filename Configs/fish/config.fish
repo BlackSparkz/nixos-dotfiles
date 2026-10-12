@@ -22,16 +22,16 @@ alias d='cd ~/Downloads'
 # ==============================
 # Fedora (dnf)
 # ==============================
-alias dnfup='sudo dnf upgrade --refresh'
-alias dnfi='sudo dnf install'
-alias dnfr='sudo dnf remove'
+alias dnfup='sudo dnf upgrade --refresh -y'
+alias dnfi='sudo dnf install -y'
+alias dnfr='sudo dnf remove -y'
 
 # ==============================
 # Debian based
 # ==============================
 alias aptup='sudo apt update && sudo apt upgrade -y'
-alias apti='sudo apt install'
-alias aptr='sudo apt remove'
+alias apti='sudo apt install -y'
+alias aptr='sudo apt remove -y'
 
 # ==============================
 # Arch based
