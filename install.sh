@@ -45,6 +45,7 @@ FEDORA_PKGS=(
   kde-connect
   hyprland
   hyprland-guitils
+  niri
   fastfetch
   awww
   fish
@@ -91,6 +92,7 @@ FEDORA_COPRS=(
   "imput/helium"
   "lihaohong/yazi"
   "lionheartp/Hyprland"
+  "yalter/niri"
 )
 
 DOTFILES="${HOME}/nixos-dotfiles"
