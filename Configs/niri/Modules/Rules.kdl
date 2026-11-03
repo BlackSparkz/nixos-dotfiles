@@ -83,6 +83,8 @@ window-rule {
   match app-id="btop"
   match app-id="VSCodium"
   match app-id="codium"
+  match app-id="Alacritty"
+  match app-id="com.visualstudio.CodeOSS"
   match app-id="yazi"
   open-maximized true
 }
