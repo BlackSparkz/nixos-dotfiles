@@ -17,7 +17,7 @@ binds {
     Mod+P {spawn-sh "pkill wlogout || wlogout";}
     Mod+Q repeat=true {close-window;}
     Mod+R {spawn-sh "pkill waybar || waybar -c $HOME/.config/waybar/Niri/config.jsonc -s $HOME/.config/waybar/style.css &";}
-    Mod+S {spawn-sh "pkill helium || helium-browser";}
+    Mod+S {spawn-sh "pkill helium || helium";}
     Mod+T {spawn "alacritty";}
     Mod+U {focus-workspace-up;}
     Mod+V {toggle-window-floating;}
