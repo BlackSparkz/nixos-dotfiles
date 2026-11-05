@@ -121,6 +121,7 @@ window-rule {
   match app-id="nmtui"
   match app-id="localsend"
   match app-id="dashboard"
+  match app-id="blueman-manager"
   match app-id="ncdu"
   match app-id="org.kde.kdeconnect.app"
   match app-id="org.gnome.Nautilus"
