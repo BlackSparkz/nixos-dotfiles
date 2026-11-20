@@ -33,30 +33,32 @@ entry {
 }
 
 listview {
-    columns: 4;
+    columns: 3;
     lines: 3;
     cycle: true;
     scrollbar: false;
-    fixed-height: true;
+    // fixed-height: true;
+    spacing: 32px;
     background-color: transparent;
 }
 
 element {
     orientation: vertical;
     border-radius: 32px;
-    background-color: transparent;
+    // background-color: transparent;
 }
 
 element selected {
-    background-color: rgba(255,255,255,0.12);
-    border: none;
+    // background-color: rgba(255,255,255,1.0);
+    border: 4px;
+    border-color: #fafafa;
 }
 
 element-icon {
     size: 160px;
-    border-radius: 32px;
-    horizontal-align: 0.5;
-    background-color: transparent;
+    // border-radius: 32px;
+    // horizontal-align: 0.5;
+    // background-color: transparent;
 }
 
 element-text {
