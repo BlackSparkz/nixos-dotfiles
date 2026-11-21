@@ -44,7 +44,7 @@ hl.layer_rule({
   name  = "waybar",
   match = { namespace = "waybar" },
   blur = true,
-  blur_popups = false,
+  blur_popups = true,
   ignore_alpha = 0,
   animation = "slide top",
 })

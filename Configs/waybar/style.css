@@ -35,6 +35,8 @@ window#waybar {
 
 tooltip {
   border-radius: 32px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0.6);
   transition: all 0.2s ease-in-out;
 }
 
