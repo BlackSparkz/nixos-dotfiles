@@ -9,6 +9,7 @@ hl.window_rule({
   name   = "float-file-pickers",
   match  = { title = "^(Open File|Open Folder|Open|Save|Save As|Export|Import|Choose File|Rename)$" },
   match  = { class = "xdg-desktop-portal-gtk" },
+  size = {"(monitor_w*0.60)","(monitor_h*0.60)"},
   float  = true,
   center = true,
   decorate = false
