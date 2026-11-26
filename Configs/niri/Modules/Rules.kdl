@@ -47,7 +47,7 @@ window-rule {
 
 layer-rule {
   match namespace="^rofi$"
-  geometry-corner-radius 50
+  geometry-corner-radius 0
   background-effect {
     blur true
   }
