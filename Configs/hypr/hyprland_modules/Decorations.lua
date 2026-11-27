@@ -25,10 +25,10 @@ hl.config({
       popups = false,
       popups_ignorealpha = 0,
       noise = 0.02,
-      contrast = 1.6,
+      contrast = 1.8,
       -- brightness = 0.9,
-      vibrancy  = 0.4,
-      vibrancy_darkness = 0.4,
+      vibrancy  = 0.3,
+      vibrancy_darkness = 0.3,
       special = false
     },
   },
